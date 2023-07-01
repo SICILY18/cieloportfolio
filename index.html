@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/871945582183329854/1123529407416516619/logs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+            if (scrollTop > 100) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        });
+    </script>
+</head>
+
+<!--css-->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+    }
+    
+    *:before,
+    *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #0A4D68;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        padding-left: 9%;
+        padding-right: 9%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+    }
+    
+    a {
+        position: relative;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+    }
+    
+    a:after {
+        content: "";
+        position: absolute;
+        background-color: #00FFCA;
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.3s;
+    }
+    
+    a:hover:after {
+        width: 100%;
+    }
+    
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+    
+    nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-right: 35px;
+        position: relative;
+        bottom: -20px;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: clamp(1.0625rem, 1.0625rem + 0vw, 1.0625rem);
+    }
+    
+    nav ul li a:hover {
+        color: #00FFCA;
+    }
+    
+    .navbar .logo span {
+        color: black;
+    }
+    
+    .navbar .logo {
+        color: white
+    }
+    
+    .intro {
+        position: absolute;
+        z-index: 2;
+        margin-bottom: 70px;
+        margin-top: 290px;
+        max-width: 100%;
+        left: 40%
+    }
+    
+    .intro .header {
+        color: whitesmoke;
+        font-size: clamp(3.125rem, 3.125rem + 0vw, 3.125rem);
+        text-decoration: none;
+        margin-top: -400px;
+    }
+    
+    span {
+        color: #00FFCA;
+    }
+    
+    .intro .bio {
+        margin-bottom: 50px;
+        font-size: clamp(1.25rem, 1.25rem + 0vw, 1.25rem);
+        font-weight: 300;
+        margin-bottom: 50px;
+        max-width: 100%;
+        width: 900px;
+        line-height: 1.9;
+        color: white;
+    }
+    
+    .intro .pic {
+        z-index: 1;
+        margin-top: -55px;
+        margin-left: -550px;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: bottom;
+    }
+    
+    .intro a {
+        display: inline-block;
+        text-decoration: none;
+        color: whitesmoke;
+        padding: 9px 25px;
+        line-height: 1.4;
+        font-size: 14px;
+        font-weight: 500;
+        z-index: 1;
+        white-space: 20px;
+    }
+    
+    .intro a:hover {
+        color: #00FFCA;
+    }
+    
+    .cta {
+        position: relative;
+        margin: auto;
+        padding: 12px 18px;
+        transition: all 0.2s ease;
+        border: none;
+        background: none;
+    }
+    
+    .cta:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 50px;
+        background: #0A4D68;
+        width: 45px;
+        height: 45px;
+        transition: all 0.3s ease;
+    }
+    
+    .cta span {
+        position: relative;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: whitesmoke;
+    }
+    
+    .cta svg {
+        position: relative;
+        top: 0;
+        margin-left: 10px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #1e7597;
+        stroke-width: 2;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+    }
+    
+    .cta:hover:before {
+        width: 100%;
+        background: #00FFCA;
+    }
+    
+    .cta:hover svg {
+        transform: translateX(0);
+        color: black;
+    }
+    
+    .cta:active {
+        transform: scale(0.95);
+    }
+    
+    .cta span:hover {
+        color: black;
+    }
+    
+    .footer {
+        position: absolute;
+        font-size: clamp(0.4375rem, 0.4375rem + 0vw, 0.4375rem);
+        color: white;
+        margin-top: 870px;
+        max-width: 100%;
+        height: auto;
+        margin-left: 550px;
+    }
+    
+    .pic {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    <!--projs-->h3 {
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+    
+    p {
+        font-size: 1em;
+        line-height: 1.7;
+        font-weight: 300;
+        color: var(--text-gray);
+    }
+    
+    .description {
+        white-space: wrap;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .wrap {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        gap: 24px;
+        padding: 24px;
+        flex-wrap: wrap;
+    }
+    
+    .box {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        position: relative;
+        padding: 24px;
+        background: #d1d5d6;
+        border-radius: 9px;
+    }
+    
+    .box-top {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+    
+    .box-image {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        object-position: 50% 20%;
+    }
+    
+    .title-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .box-title {
+        border-left: 3px solid var(--purple);
+        padding-left: 12px;
+    }
+    
+    .user-follow-info {
+        color: hsl(0, 0%, 60%);
+    }
+    
+    .button {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: auto;
+        padding: 16px;
+        color: #000;
+        background: transparent;
+        box-shadow: 0px 0px 0px 1px black inset;
+    }
+    
+    .button:hover {
+        background: var(--purple);
+    }
+    
+    .fill-one {
+        background: var(--light-bg);
+    }
+    
+    .fill-two {
+        background: var(--pink);
+    }
+    
+    .cta {
+        position: relative;
+        margin: auto;
+        padding: 12px 18px;
+        transition: all 0.2s ease;
+        border: none;
+        background: none;
+    }
+    
+    .cta:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 50px;
+        background: #d1d5d6;
+        width: 45px;
+        height: 45px;
+        transition: all 0.3s ease;
+    }
+    
+    .cta span {
+        position: relative;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: black;
+    }
+    
+    .cta svg {
+        position: relative;
+        top: 0;
+        margin-left: 10px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #1e7597;
+        stroke-width: 2;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+    }
+    
+    .cta:hover:before {
+        width: 100%;
+        background: #00FFCA;
+    }
+    
+    .cta:hover svg {
+        transform: translateX(0);
+        color: black;
+    }
+    
+    .cta:active {
+        transform: scale(0.95);
+    }
+    
+    .cta span:hover {
+        color: black;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    .navbar.sticky {
+        padding: 5px 100px;
+    }
+    
+    .about h1 {
+        position: relative;
+        top: 20px;
+        right: -970px;
+        color: whitesmoke;
+    }
+    
+    .about h2 {
+        position: relative;
+        top: -50px;
+        left: 670px;
+        color: whitesmoke;
+        top: -360px;
+        font-size: clamp(1.0625rem, 1.0625rem + 0vw, 1.0625rem);
+    }
+    
+    .about p {
+        position: relative;
+        top: -50px;
+        left: 670px;
+        color: whitesmoke;
+        top: -360px;
+        font-size: clamp(1.0625rem, 1.0625rem + 0vw, 1.0625rem);
+    }
+    
+    .card3 {
+        width: 300px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        top: -300px;
+        right: -650px;
+        position: relative;
+    }
+    
+    .card4 {
+        width: 300px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        top: -540px;
+        right: -1050px;
+        position: relative;
+    }
+    
+    .prg {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .body {
+        padding: 20px;
+    }
+    
+    .skill {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .skill-name {
+        width: 120px;
+        font-size: 16px;
+    }
+    
+    .skill-level {
+        width: 160px;
+        height: 10px;
+        background-color: #eee;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: 20px;
+    }
+    
+    .skill-percent {
+        background-color: #00FFCA;
+        height: 100%;
+    }
+    
+    .skill-percent-number {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    
+    #proj h1 {
+        position: relative;
+        bottom: -20px;
+        right: -900px;
+        color: whitesmoke;
+    }
+    
+    .wrap {
+        position: relative;
+        bottom: -60px;
+    }
+    
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body,
+    button,
+    input {
+        font-weight: 700;
+        letter-spacing: 1.4px;
+    }
+    
+    .background {
+        display: flex;
+        min-height: 100vh;
+    }
+    
+    .container {
+        flex: 0 1 700px;
+        margin: auto;
+        padding: 10px;
+    }
+    
+    .screen {
+        position: relative;
+        background: #3e3e3e;
+        border-radius: 15px;
+    }
+    
+    .screen:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+        z-index: -1;
+    }
+    
+    .screen-header {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background: #4d4d4f;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    
+    .screen-header-left {
+        margin-right: auto;
+    }
+    
+    .screen-header-button {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 3px;
+        border-radius: 8px;
+        background: #00FFCA;
+    }
+    
+    .screen-header-button.close {
+        background: #ed1c6f;
+    }
+    
+    .screen-header-button.maximize {
+        background: #e8e925;
+    }
+    
+    .screen-header-button.minimize {
+        background: #74c54f;
+    }
+    
+    .screen-header-right {
+        display: flex;
+    }
+    
+    .screen-header-ellipsis {
+        width: 3px;
+        height: 3px;
+        margin-left: 2px;
+        border-radius: 8px;
+        background: #999;
+    }
+    
+    .screen-body {
+        display: flex;
+    }
+    
+    .screen-body-item {
+        flex: 1;
+        padding: 50px;
+    }
+    
+    .screen-body-item.left {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .app-title {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        color: #0A4D68;
+        font-size: 26px;
+    }
+    
+    .app-title:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 25px;
+        height: 4px;
+        background: #00FFCA;
+    }
+    
+    .app-contact {
+        margin-top: auto;
+        font-size: 8px;
+        color: #888;
+    }
+    
+    .app-form-group {
+        margin-bottom: 15px;
+    }
+    
+    .app-form-group.message {
+        margin-top: 40px;
+    }
+    
+    .app-form-group.buttons {
+        margin-bottom: 0;
+        text-align: right;
+    }
+    
+    .app-form-control {
+        width: 100%;
+        padding: 10px 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid #666;
+        color: #ddd;
+        font-size: 14px;
+        text-transform: uppercase;
+        outline: none;
+        transition: border-color .2s;
+    }
+    
+    .app-form-control::placeholder {
+        color: whitesmoke;
+    }
+    
+    .app-form-control:focus {
+        border-bottom-color: #00FFCA;
+    }
+    
+    .app-form-button {
+        background: none;
+        border: none;
+        color: whitesmoke;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+    }
+    
+    .app-form-button:hover {
+        color: #00FFCA;
+    }
+    
+    .screen {
+        bottom: -240px;
+        position: relative;
+    }
+    
+    @media screen and (max-width: 520px) {
+        .screen-body {
+            flex-direction: column;
+        }
+        .screen-body-item.left {
+            margin-bottom: 30px;
+        }
+        .app-title {
+            flex-direction: row;
+        }
+        .app-title span {
+            margin-right: 12px;
+        }
+        .app-title:after {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .screen-body {
+            padding: 40px;
+        }
+        .screen-body-item {
+            padding: 0;
+        }
+    }
+    
+    @media (min-width: 320px) {
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 460px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 640px) {
+        .box {
+            flex-basis: calc(50% - 12px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 840px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .box {
+            flex-basis: calc(33.3% - 16px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1100px) {
+        .box {
+            flex-basis: calc(25% - 18px);
+        }
+    }
+    
+    @media only screen and (max-width: 480px) {
+        .pic {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <header>
+            <!--NAVBAR-->
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#intro">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#proj">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </nav>
+            <!--NAVBAR END-->
+        </header>
+
+        <!--bio section-->
+        <section id="intro">
+            <div class="intro">
+                <div class="pic">
+                    <img src="https://cdn.discordapp.com/attachments/871945582183329854/1123539203628732436/finallogs.png">
+                </div>
+                <h1 class="header">Hi it's me <span>Cielo!</span></h1>
+                <p class="bio"><span>Full-Stack Developer</span></p>
+                <br>
+                <button class="cta" onclick="window.location.href = '#contact';">
+                <span>Get In Touch</span>
+                <svg viewBox="0 0 13 10" height="10px" width="15px">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+              </button>
+                <button class="cta" onclick="window.location.href = '#about';">
+                <span>About me</span>
+                <svg viewBox="0 0 13 10" height="10px" width="15px">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+              </button>
+        </section>
+        </div>
+        <br>
+
+        <!--about us-->
+        <section id="about">
+            <div class="about">
+                <h1>About</h1>
+                <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t39.30808-6/295615121_1929199597278919_5672518952328699733_n.jpg?_nc_cat=100&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGp6T3DEUqpqAg51lquYmsl6HYnI2qgL2XodicjaqAvZclx-AXxz2MCYub17T2OJn1NfGOwwynqG8WrTiQSg9-c&_nc_ohc=UgENa8olv9sAX899dTm&_nc_ht=scontent.fmnl4-4.fna&oh=00_AfAZ0Wr0vElylV7wljZZgPthDMA6WdXoGmwVNdgujySLHQ&oe=64A58334"
+                    class="imgrd" style="width: 550px; border-radius: 28px; left: 20px; position: relative; flex-wrap: wrap; bottom: -100px;">
+                <h2>My name is Faith Jane Cielo</h2>
+                <p>I'm a 19-year-old freshman majoring in Web and Mobile Development for my bachelor's degree in Information Technology. </p>
+
+                <div class="card3">
+                    <div class="prg">My Skills</div>
+                    <div class="body">
+                        <div class="skill">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 90%"></div>
+                            </div>
+                            <div class="skill-percent-number">90%</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">CSS</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 80%"></div>
+                            </div>
+                            <div class="skill-percent-number">80%</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 65%"></div>
+                            </div>
+                            <div class="skill-percent-number">65%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card4">
+                    <div class="prg">My Hobbies</div>
+                    <div class="body">
+                        <div class="skill">
+                            <div class="skill-name">Playing games</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 90%"></div>
+                            </div>
+                            <div class="skill-percent-number">90%</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Watching Movies</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 80%"></div>
+                            </div>
+                            <div class="skill-percent-number">80%</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Studying</div>
+                            <div class="skill-level">
+                                <div class="skill-percent" style="width: 65%"></div>
+                            </div>
+                            <div class="skill-percent-number">65%</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!--project section-->
+        <section id="proj">
+            <h1>Projects</h1>
+            <div class="wrap">
+                <div class="box">
+                    <div class="box-top">
+                        <img class="box-image" src="https://scontent-mnl1-1.xx.fbcdn.net/v/t1.15752-9/352918359_193884843647498_5969863185407143144_n.png?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFFZSqEXNF2KbdmA5Kwkhf1I_y7fk-f70cj_Lt-T5_vR_6Cstre54VVIvW8vM_Rj2BdFOXI4rXC0TAtWSB9RZ9S&_nc_ohc=mujDrEzV1Y0AX8vVQIt&_nc_ht=scontent-mnl1-1.xx&oh=03_AdSpPFBmL0wyWoALCrmI4l10BB9RYMdtFUuQQk94dYcGfA&oe=64C64499">
+                        <div class="title-flex">
+                            <h3 class="box-title">Simple Login form</h3>
+                        </div>
+                        <p class="description">Zayn log in form</p>
+                    </div>
+                    <button class="cta" src>
+                     <a href="https://github.com/SICILY18/zaynlogin.git">
+                        <span>Source Code</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                     </a>
+
+                    <button class="cta">
+                        <a href="https://sicily18.github.io/zaynlogin/">
+                        <span>View website</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <div class="box">
+                    <div class="box-top">
+                        <img class="box-image" src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/357359241_983873679470802_4265538706433435889_n.png?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeE8JNES4gbGrqFSs3LgltDyqJFxLcyMUdeokXEtzIxR19mytkltIIsJoq72tmCFIufRtBLDLgeIKhjhO0Jp9HxL&_nc_ohc=gsGo5cKetYcAX_PCOoj&_nc_ht=scontent.fmnl4-3.fna&oh=03_AdROWKCTIiNcpJIsqX7VXdx0ThmQn6v1jMi8OXxKq-Sejg&oe=64C62B73">
+                        <div class="title-flex">
+                            <h3 class="box-title">Basic Web page</h3>
+                        </div>
+                        <p class="description">Basic 3 pages web page.</p>
+                    </div>
+                    <button class="cta">
+                        <a href="https://github.com/SICILY18/peytwebpage.git">
+                        <span>Source Code</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+
+                    <button class="cta">
+                        <a href="https://sicily18.github.io/peytwebpage/">
+                        <span>View website</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <div class="box">
+                    <div class="box-top">
+                        <img class="box-image" src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t1.15752-9/341517354_630217059059968_9167584493461493046_n.png?_nc_cat=105&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeGjicqst2kop1FR7rleb-a30RHMUChbVYPREcxQKFtVg9Asj5xzDB9syEHGV5yTH_gCtzivB6MZNHLLN1x-4ExE&_nc_ohc=AwvrCrOsWCUAX-E9r9V&_nc_ht=scontent.fmnl4-2.fna&oh=03_AdRca9eLoe8p0GW8NfWkA16qhKiQctqR_ile5XDE8y3hug&oe=64C65E25">
+                        <div class="title-flex">
+                            <h3 class="box-title">Bootstrap Log in form</h3>
+                        </div>
+                        <p class="description">a login form using bootstrap 5</p>
+                    </div>
+                    <button class="cta">
+                        <a href="https://github.com/SICILY18/bootsrapzayn.git">
+                        <span>Source Code</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+
+                    <button class="cta">
+                        <a href="https://sicily18.github.io/bootsrapzayn/">
+                        <span>View website</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <div class="box">
+                    <div class="box-top">
+                        <img class="box-image" src="https://scontent-mnl1-1.xx.fbcdn.net/v/t1.15752-9/357367116_241015775460208_4236210934488695801_n.png?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeF3cmBG5krEmGznQFoFxmiQeBpSmM9Sm6R4GlKYz1KbpB57g1ANfNYrLuGGh4VYbes_tEiDYxS7i7sKTeB5XZuR&_nc_ohc=UNj4kUFRXA0AX_xmKtR&_nc_ht=scontent-mnl1-1.xx&oh=03_AdRApvWYCd3WWBVoHi8lops0gCeh9PEMlpG8XpUg_M-r1Q&oe=64C65DD5">
+                        <div class="title-flex">
+                            <h3 class="box-title">Resume</h3>
+                        </div>
+                        <p class="description">Cielo's Resume</p>
+                    </div>
+                    <button class="cta">
+                        <a href="https://github.com/SICILY18/resume.git">
+                        <span>Source Code</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+
+                    <button class="cta">
+                        <a href="https://sicily18.github.io/resume/">
+                        <span>View website</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!--contact-->
+            <section id="contact">
+                <div class="container">
+                    <div class="screen">
+                        <div class="screen-header">
+                            <div class="screen-header-left">
+                                <div class="screen-header-button close"></div>
+                                <div class="screen-header-button maximize"></div>
+                                <div class="screen-header-button minimize"></div>
+                            </div>
+                            <div class="screen-header-right">
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                            </div>
+                        </div>
+                        <div class="screen-body">
+                            <div class="screen-body-item left">
+                                <div class="app-title">
+                                    <span>CONTACT</span>
+                                    <span>ME</span>
+                                </div>
+                                <div class="app-contact">CONTACT INFO : +639999742914</div>
+                                <div class="app-contact">Instagram : faithloveszaynx</div>
+                                <div class="app-contact">Gmail : peytajoc@gmail.com</div>
+                                <div class="app-contact">Discord: sinteyaaa</div>
+                            </div>
+                            <div class="screen-body-item">
+                                <div class="app-form">
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="NAME">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="EMAIL">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="CONTACT NO">
+                                    </div>
+                                    <div class="app-form-group message">
+                                        <input class="app-form-control" placeholder="MESSAGE">
+                                    </div>
+                                    <div class="app-form-group buttons">
+                                        <button class="app-form-button">CANCEL</button>
+                    <button class="app-form-button">SEND</button>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </section>
+    <!--footer-->
+    </div>
+</body>
+
+</html>
